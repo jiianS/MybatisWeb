@@ -34,6 +34,30 @@
   	<description></description>
   	<servlet-class>kr.co.gdu.BoardList</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>kr.co.gdu.Login</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MemberInfo</servlet-name>
+  	<display-name>MemberInfo</display-name>
+  	<description></description>
+  	<servlet-class>kr.co.gdu.MemberInfo</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Join</servlet-name>
+  	<display-name>Join</display-name>
+  	<description></description>
+  	<servlet-class>kr.co.gdu.Join</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>M_update</servlet-name>
+  	<display-name>M_update</display-name>
+  	<description></description>
+  	<servlet-class>kr.co.gdu.M_update</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>DBTest</servlet-name>
   	<url-pattern>/DBTest</url-pattern>
@@ -53,5 +77,21 @@
   <servlet-mapping>
   	<servlet-name>BoardList</servlet-name>
   	<url-pattern>/BoardList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MemberInfo</servlet-name>
+  	<url-pattern>/MemberInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Join</servlet-name>
+  	<url-pattern>/Join</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>M_update</servlet-name>
+  	<url-pattern>/M_update</url-pattern>
   </servlet-mapping>
 </web-app>

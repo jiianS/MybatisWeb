@@ -17,5 +17,6 @@
   <mappers>
     <mapper resource="kr/co/gdu/sql/TestMapper.xml"/>
     <mapper resource="kr/co/gdu/sql/UserMapper.xml"/>
+    <mapper resource="kr/co/gdu/sql/MemberMapper.xml"/>
   </mappers>
 </configuration>
