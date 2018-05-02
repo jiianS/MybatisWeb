@@ -13,24 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-public class UserList extends HttpServlet {
+
+public class BoardList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBCon con = new DBCon();
 		SqlSessionFactory sqlSessionFactory = con.getCon();
 		SqlSession session = sqlSessionFactory.openSession(true);
 		
-		List<HashMap<String, Object>> list = session.selectList("user.selectUser");
-//		for(int i = 0; i < list.size(); i++) {
-//			System.out.println(list.get(i));
-//		}
+		String regUser = request.getParameter("regUser");
+		
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("regUser", regUser);
+		System.out.println(map);
+		
+		
+		List<HashMap<String, Object>> list = session.selectList("user.selectBoard", map);
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
 		request.setAttribute("list", list);
-		RequestDispatcher dis = request.getRequestDispatcher("userList.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("boardList.jsp");
 		dis.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
+	
 }

@@ -2,7 +2,6 @@ package kr.co.gdu;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,23 +12,32 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-public class UserList extends HttpServlet {
 
+public class BoardView extends HttpServlet {      
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		DBCon con = new DBCon();
 		SqlSessionFactory sqlSessionFactory = con.getCon();
 		SqlSession session = sqlSessionFactory.openSession(true);
 		
-		List<HashMap<String, Object>> list = session.selectList("user.selectUser");
-//		for(int i = 0; i < list.size(); i++) {
-//			System.out.println(list.get(i));
-//		}
-		request.setAttribute("list", list);
-		RequestDispatcher dis = request.getRequestDispatcher("userList.jsp");
-		dis.forward(request, response);
-	}
+		request.setCharacterEncoding("UTF-8");
+		String boardNo = request.getParameter("boardNo");
+		String regUser = request.getParameter("regUser");
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("boardNo", boardNo);
+		map.put("regUser", regUser);		
+		System.out.println(map);
+		
+		HashMap<String, Object> data = session.selectOne("user.selectBoardOne",map);
+		System.out.println(data);
+		
+		request.setAttribute("data", data);
+		RequestDispatcher dis = request.getRequestDispatcher("boardView.jsp");
+		dis.forward(request, response);
+		
+		
 		
 	}
 

@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class DBCon {
-	
 	SqlSessionFactory sqlSessionFactory;
 	
 	public DBCon() throws IOException {
@@ -17,8 +16,7 @@ public class DBCon {
 		InputStream inputStream = Resources.getResourceAsStream(resource);
 		// Mybatis에서 JDBC 연결해 주는 작업
 		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-	}
-	
+	}	
 	public SqlSessionFactory getCon() {
 		return sqlSessionFactory;
 	}

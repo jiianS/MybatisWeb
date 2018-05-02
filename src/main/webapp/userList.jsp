@@ -1,6 +1,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +10,13 @@
 </head>
 <body>
 	<%
-		List<HashMap<String, Object>> list 
-			= (List<HashMap<String, Object>>) request.getAttribute("list");
+		List<HashMap<String, Object>> list = (List<HashMap<String, Object>>) request.getAttribute("list");
 		String html = "";
-		for(int i = 0; i < list.size(); i++){
-			html += "<a href='insert.jsp?userNo=" + list.get(i).get("사용자번호") + "' >" + list.get(i).get("이름") + "</a><br>";
+		for (int i = 0; i < list.size(); i++) {
+			html += "<a href='insert.jsp?userNo=" + list.get(i).get("사용자번호") + "' >" 
+				+ list.get(i).get("이름") 	+ "</a><br>";
 		}
 	%>
-	<%= html%>
+	<%=html%>
 </body>
 </html>
