@@ -9,22 +9,23 @@
 </head>
 <body>
 	<%
-		HashMap<String, Object> data 
-			= (HashMap<String, Object>) request.getAttribute("data");
-		String html = data.toString();
-		
+		String id= request.getParameter("id");		
 	%>
 <h1>회원정보 수정</h1>
 <p>
-	<form action ="M_update">
+	<form action ="M_update" method="post">
 		이      름 :  <input type="text" name = "name" placeholder="이름을 입력하세요"><br>
-		I   D :  <%=data.get("id") %>
+		I   D :  <%=id %><br>
 		비밀번호 :  <input type="text" name = "password" placeholder="비밀번호를 입력하세요"> <br>
 		설      명 :  <input type="text" name = "account" placeholder="설명 입력하세요?"><br>
+		<input type="hidden" name = "id" value="<%=id %>" > <br>		
 		
 		<input type="submit" value="수정">
 		<input type="reset" value = "취소">	
+		
 	</form>
+		<a href = "memInfo.jsp?id=<%=id %>"> 수정 </a>
+	
 
 </p>
 

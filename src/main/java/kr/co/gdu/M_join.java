@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-public class Join extends HttpServlet {
+public class M_join extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -35,7 +35,7 @@ public class Join extends HttpServlet {
 		DBCon con = new DBCon();
 		SqlSessionFactory sqlSessionFactory = con.getCon();
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("mem.memUpdate", map);
+		int cnt = session.insert("mem.insertMember", map);
 		System.out.println(cnt);
 		
 		

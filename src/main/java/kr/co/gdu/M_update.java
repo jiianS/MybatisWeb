@@ -18,14 +18,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
  */
 public class M_update extends HttpServlet {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String account = request.getParameter("account");
-		
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("name", name);
@@ -33,26 +33,26 @@ public class M_update extends HttpServlet {
 		map.put("password", password);
 		map.put("account", account);
 		System.out.println(map);
-		
-		//DB에 연결하기
+
+		// DB에 연결하기 -> 원래 개인 정보에 대한 값 갖고오기
 		DBCon con = new DBCon();
 		SqlSessionFactory sqlSessionFactory = con.getCon();
 		SqlSession session = sqlSessionFactory.openSession(true);
-		int cnt = session.insert("mem.insertMember", map);
+
+		int cnt = session.update("mem.memUpdate", map);
 		System.out.println(cnt);
-		
-		
+
 		// Board리스트
 		if (cnt == 1) {
-			List<HashMap<String, Object>> list = session.selectList("mem.selectMember",map);
+			List<HashMap<String, Object>> list = session.selectList("mem.memInfo2", map);
 			request.setAttribute("list", list);
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("memInfo.jsp");
 			dis.forward(request, response);
-			
+
 		} else {
 
 		}
-		
+
 	}
 
 }

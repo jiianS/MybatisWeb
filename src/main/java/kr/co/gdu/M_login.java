@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-public class Login extends HttpServlet {
+public class M_login extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBCon con = new DBCon();
 		SqlSessionFactory sqlSessionFactory = con.getCon();
 		SqlSession session = sqlSessionFactory.openSession(true);
@@ -25,7 +25,7 @@ public class Login extends HttpServlet {
 			System.out.println(list.get(i));
 		}
 		request.setAttribute("list", list);
-		RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("m_login.jsp");
 		dis.forward(request, response);
 	}
 

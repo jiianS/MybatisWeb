@@ -22,8 +22,9 @@
 		설명 : <%= data.get("account") %> <br>	
 	</p>
 	
-	<a href = "Update?id=<%=data.get("id") %>"> 수정 </a>
-	<a href = ""> 확인 </a>
+	
+	<a href = "update.jsp?id=<%=data.get("id") %>"> 수정 </a>
+	<a href = "m_login.jsp"> 확인 </a>
 	
 	
 

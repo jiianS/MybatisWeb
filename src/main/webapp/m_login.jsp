@@ -18,7 +18,7 @@
 			<input type="submit" value="로그인">
 		</form>
 
-		<form action="join.jsp">
+		<form action="M_join.jsp">
 			<input type="submit" value="회원가입">
 		</form>
 		</p>

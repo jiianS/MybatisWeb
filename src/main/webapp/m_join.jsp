@@ -10,7 +10,7 @@
 <h1>회원가입</h1>
 
 <p>
-	<form action ="Join">
+	<form action ="M_join" method="post">
 		이      름 :  <input type="text" name = "name" placeholder="이름을 입력하세요"><br>
 		I   D :  <input type="text" name = "id" placeholder="아이디를 입력하세요"><br>
 		비밀번호 :  <input type="text" name = "password" placeholder="비밀번호를 입력하세요"> <br>
@@ -22,7 +22,7 @@
 
 </p>
 
-<a href="Login">가입 취소+ 메인으로</a>
+<a href="M_login">가입 취소+ 메인으로</a>
 
 </body>
 </html>

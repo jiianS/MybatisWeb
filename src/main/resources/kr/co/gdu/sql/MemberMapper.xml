@@ -16,7 +16,13 @@
 	where id = #{id}
 	and password = #{password}
   </select>
-   
+  
+    <select id="memInfo2" parameterType="hashmap" resultType="hashmap">
+	select *
+	from test.member
+	where id = #{id}
+  </select>
+
     <insert id="insertMember" parameterType="hashmap">
   	insert into test.member 
   	  (id, password, name, account) 
